@@ -4,6 +4,8 @@
  */
 package view;
 
+import service.CalculadoraLogica;
+
 /**
  *
  * @author Gustavo Macedo
@@ -209,7 +211,12 @@ public class calculadoraTela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+   
 
+
+
+    // eventos  necessários para a calculadora funcionar
+    CalculadoraLogica calculadoraLogica = new CalculadoraLogica();
     double primeiroNumero;
         String operador;
         double segundoNumero;
@@ -327,22 +334,22 @@ public class calculadoraTela extends javax.swing.JFrame {
     // Adiciona o 2º número ao campo de resultado
         switch (operador) {
             case "+":
-                resultadoFinal = primeiroNumero + segundoNumero;
+                resultadoFinal = calculadoraLogica.somar(primeiroNumero, segundoNumero);
                 historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
                 resultado.setText(String.valueOf(resultadoFinal));
                 break;
             case "-":
-                resultadoFinal = primeiroNumero - segundoNumero;
+                resultadoFinal = calculadoraLogica.subtrair(primeiroNumero, segundoNumero);
                 historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
                 resultado.setText(String.valueOf(resultadoFinal));
                 break;
             case "*":
-                resultadoFinal = primeiroNumero * segundoNumero;
+                resultadoFinal = calculadoraLogica.multiplicar(primeiroNumero, segundoNumero);
                 historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
                 resultado.setText(String.valueOf(resultadoFinal));
                 break;
             case "/":
-                resultadoFinal = primeiroNumero / segundoNumero;
+                resultadoFinal = calculadoraLogica.dividir(primeiroNumero, segundoNumero);
                 historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
                 resultado.setText(String.valueOf(resultadoFinal));
                 break;
