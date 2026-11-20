@@ -5,6 +5,9 @@
 package view;
 
 import service.CalculadoraLogica;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 
 /**
  *
@@ -216,145 +219,115 @@ public class calculadoraTela extends javax.swing.JFrame {
 
 
     // eventos  necessários para a calculadora funcionar
+    private void digitar(String valor) {
+    // Se estiver mostrando mensagem de erro, limpa antes de digitar o próximo número
+    if (resultado.getText().equals("Erro")) {
+        resultado.setText("");
+    }
+    resultado.setText(resultado.getText() + valor);
+}
     CalculadoraLogica calculadoraLogica = new CalculadoraLogica();
-    double primeiroNumero;
-        String operador;
-        double segundoNumero;
+    
       // Event handlers for button actions
      private void number0ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "0");
-
-        primeiroNumero = Double.parseDouble(resultado.getText());
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "0");
+       digitar("0");
     }                                       
 
     private void number1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "1");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "1");
-
+        digitar("1");
         
     }                                       
 
     private void number2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "2");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "2");
+        digitar("2");
     }                                       
 
     private void number3ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "3");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "3");
+        digitar("3");
     }                                       
 
     private void number4ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "4");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "4");
+        digitar("4");
     }                                       
 
     private void number5ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "5");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "5");
+        digitar("5");
     }                                       
 
     private void number6ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "6");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "6");
+        digitar("6");
     }                                       
 
     private void number7ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "7");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "7");
-
+        digitar("7");
 
     }                                       
 
     private void number8ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "8");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "8");
+        digitar("8");
     }                                       
 
     private void number9ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        resultado.setText(resultado.getText() + "9");
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "9");
-
-
+        digitar("9");
     }  
     
         private void adicaoButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
-
-         primeiroNumero = Double.parseDouble(resultado.getText()); // Pega o 1º número
-      operador = "+";  
-      resultado.setText(""); // Limpa o campo de resultado para o próximo número 
-
-      historicoDeCalculo.setText(historicoDeCalculo.getText() + "+"); // Adiciona o operador ao campo de resultado
-                                       // Guarda a operação
-    
+        digitar("+");
 
     }                                            
 
     private void subtracaoButtonActionPerformed(java.awt.event.ActionEvent evt) {  
-        primeiroNumero = Double.parseDouble(resultado.getText()); // Pega o 1º número
-        operador = "-"; // Guarda a operação
-        resultado.setText(""); // Limpa o campo de resultado para o próximo número                                              
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "-");
+        digitar("-");
        
     }                                               
 
     private void multbuttonActionPerformed(java.awt.event.ActionEvent evt) {
-        primeiroNumero = Double.parseDouble(resultado.getText()); // Pega o 1º número                                           
-        resultado.setText(resultado.getText() + "*");
-        operador = "*"; // Guarda a operação
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "*");
-        resultado.setText("");
+        digitar("*");
 
     }                                          
 
     private void divisaoButtonActionPerformed(java.awt.event.ActionEvent evt) {  
-        primeiroNumero = Double.parseDouble(resultado.getText()); // Pega o 1º número                                            
-        resultado.setText(resultado.getText() + "÷");
-        
-        operador = "/"; // Guarda a operação
-        historicoDeCalculo.setText(historicoDeCalculo.getText() + "÷");
-        resultado.setText("");
+        digitar("/");
     }                                             
    
         private void parenteseEsquerdoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        resultado.setText(resultado.getText() + "(");
+       digitar("(");
     }                                                 
 
     private void parenteseDireitoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        resultado.setText(resultado.getText() + ")");
+        digitar(")");
     }                                                
 
         private void igualButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO: Lógica do cálculo final
-        double resultadoFinal = 0;
+           try {
+                String expressaoVisor = resultado.getText();
+                if (expressaoVisor.isEmpty()) return;
+            
+                // Troca o '÷' visual pelo '/' que o exp4j entende
+                String expressaoCalculo = expressaoVisor.replace("÷", "/");
 
-        segundoNumero = Double.parseDouble(resultado.getText()); // Pega o 2º número
-    // Adiciona o 2º número ao campo de resultado
-        switch (operador) {
-            case "+":
-                resultadoFinal = calculadoraLogica.somar(primeiroNumero, segundoNumero);
-                historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
-                resultado.setText(String.valueOf(resultadoFinal));
-                break;
-            case "-":
-                resultadoFinal = calculadoraLogica.subtrair(primeiroNumero, segundoNumero);
-                historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
-                resultado.setText(String.valueOf(resultadoFinal));
-                break;
-            case "*":
-                resultadoFinal = calculadoraLogica.multiplicar(primeiroNumero, segundoNumero);
-                historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
-                resultado.setText(String.valueOf(resultadoFinal));
-                break;
-            case "/":
-                resultadoFinal = calculadoraLogica.dividir(primeiroNumero, segundoNumero);
-                historicoDeCalculo.setText(historicoDeCalculo.getText() + " = " + resultadoFinal);
-                resultado.setText(String.valueOf(resultadoFinal));
-                break;
-        }
-        resultado.setText(String.valueOf(resultadoFinal));
+                // O exp4j calcula toda a expressão (com parênteses e precedência)
+                Expression e = new ExpressionBuilder(expressaoCalculo).build();
+                double resultadoFinal = e.evaluate();
+
+                // Formata para não mostrar ".0" em números inteiros (ex: 4.0 vira 4)
+                String textoFinal;
+                if (resultadoFinal == (long) resultadoFinal) {
+                    textoFinal = String.format("%d", (long) resultadoFinal);
+                } else {
+                    textoFinal = String.valueOf(resultadoFinal);
+                }
+
+                historicoDeCalculo.setText(expressaoVisor + " = " + textoFinal);
+                resultado.setText(textoFinal);
+
+            } catch (Exception ex) {
+                resultado.setText("Erro");
+            }
+
+               
     }                                           
 
     private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {                                          
