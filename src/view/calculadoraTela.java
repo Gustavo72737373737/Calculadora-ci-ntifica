@@ -4,9 +4,17 @@
  */
 package view;
 
-import service.CalculadoraLogica;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.function.Function;
+import net.objecthunter.exp4j.operator.Operator;
+import service.CalculadoraLogica;
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
 
 /**
@@ -53,6 +61,28 @@ public class calculadoraTela extends javax.swing.JFrame {
         parenteseDireito = new javax.swing.JButton();
         historicoDeCalculo = new javax.swing.JTextField();
         clearButton = new javax.swing.JButton();
+        apagarButton = new javax.swing.JButton();
+        porcentagemButton = new javax.swing.JButton();
+        elevadoQuadradoButton = new javax.swing.JButton();
+        elevadoCuboButton = new javax.swing.JButton();
+        potenciaGenericaButton = new javax.swing.JButton();
+        raizQuadradaButton = new javax.swing.JButton();
+        raizCubicaButton = new javax.swing.JButton();
+        raizEnesimaButton = new javax.swing.JButton();
+        logaritimoButton = new javax.swing.JButton();
+        logaritmoNaturalButton = new javax.swing.JButton();
+        senoButton = new javax.swing.JButton();
+        cossenoButton = new javax.swing.JButton();
+        tangenteButton = new javax.swing.JButton();
+        senoIversoButton = new javax.swing.JButton();
+        cossenoIversoButton = new javax.swing.JButton();
+        tangenteInversoButton = new javax.swing.JButton();
+        alternarGrausRadianos = new javax.swing.JToggleButton();
+        virgulaButton = new javax.swing.JButton();
+        fatorialButton = new javax.swing.JButton();
+        PIButton = new javax.swing.JButton();
+        numeroDeEulerButton = new javax.swing.JButton();
+        inversorSinalButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,235 +147,466 @@ public class calculadoraTela extends javax.swing.JFrame {
         clearButton.setText("C");
         clearButton.addActionListener(this::clearButtonActionPerformed);
 
+        apagarButton.setText("⌫");
+        apagarButton.addActionListener(this::apagarButtonActionPerformed);
+
+        porcentagemButton.setText("%");
+        porcentagemButton.addActionListener(this::porcentagemButtonActionPerformed);
+
+        elevadoQuadradoButton.setText("x²");
+        elevadoQuadradoButton.addActionListener(this::elevadoQuadradoButtonActionPerformed);
+
+        elevadoCuboButton.setText("x³");
+        elevadoCuboButton.addActionListener(this::elevadoCuboButtonActionPerformed);
+
+        potenciaGenericaButton.setText("xʸ");
+        potenciaGenericaButton.addActionListener(this::potenciaGenericaButtonActionPerformed);
+
+        raizQuadradaButton.setText("²√x");
+        raizQuadradaButton.addActionListener(this::raizQuadradaButtonActionPerformed);
+
+        raizCubicaButton.setText("³√x");
+        raizCubicaButton.addActionListener(this::raizCubicaButtonActionPerformed);
+
+        raizEnesimaButton.setText("ʸ√x");
+        raizEnesimaButton.addActionListener(this::raizEnesimaButtonActionPerformed);
+
+        logaritimoButton.setText("log");
+        logaritimoButton.addActionListener(this::logaritimoButtonActionPerformed);
+
+        logaritmoNaturalButton.setText("ln");
+        logaritmoNaturalButton.addActionListener(this::logaritmoNaturalButtonActionPerformed);
+
+        senoButton.setText("sin");
+        senoButton.addActionListener(this::senoButtonActionPerformed);
+
+        cossenoButton.setText("cos");
+        cossenoButton.addActionListener(this::cossenoButtonActionPerformed);
+
+        tangenteButton.setText("tan");
+        tangenteButton.addActionListener(this::tangenteButtonActionPerformed);
+
+        senoIversoButton.setText("sin⁻¹");
+        senoIversoButton.addActionListener(this::senoIversoButtonActionPerformed);
+
+        cossenoIversoButton.setText("cos⁻¹");
+        cossenoIversoButton.addActionListener(this::cossenoIversoButtonActionPerformed);
+
+        tangenteInversoButton.setText("tan⁻¹");
+        tangenteInversoButton.addActionListener(this::tangenteInversoButtonActionPerformed);
+
+        alternarGrausRadianos.setText("DEG / RAD");
+        alternarGrausRadianos.addActionListener(this::alternarGrausRadianosActionPerformed);
+
+        virgulaButton.setText(",");
+        virgulaButton.addActionListener(this::virgulaButtonActionPerformed);
+
+        fatorialButton.setText("n!");
+        fatorialButton.addActionListener(this::fatorialButtonActionPerformed);
+
+        PIButton.setText("π");
+        PIButton.addActionListener(this::PIButtonActionPerformed);
+
+        numeroDeEulerButton.setText("e");
+        numeroDeEulerButton.addActionListener(this::numeroDeEulerButtonActionPerformed);
+
+        inversorSinalButton.setText("+/-");
+        inversorSinalButton.addActionListener(this::inversorSinalButtonActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(resultado)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(number4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(parenteseEsquerdo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addComponent(number2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(parenteseDireito, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(number0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(igualButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(subtracaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(adicaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(divisaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(multbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(historicoDeCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(historicoDeCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alternarGrausRadianos, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(elevadoQuadradoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(elevadoCuboButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(potenciaGenericaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(raizQuadradaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(raizCubicaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(raizEnesimaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(logaritimoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(logaritmoNaturalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(senoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cossenoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tangenteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(numeroDeEulerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(senoIversoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                    .addComponent(cossenoIversoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fatorialButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tangenteInversoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PIButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inversorSinalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(number4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(7, 7, 7)
+                                            .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(parenteseEsquerdo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(number2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(parenteseDireito, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(virgulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGap(2, 2, 2))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(7, 7, 7)
+                                    .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(number0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(apagarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(porcentagemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(igualButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(subtracaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(adicaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(divisaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(multbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(historicoDeCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(subtracaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(historicoDeCalculo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(alternarGrausRadianos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(adicaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(multbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(igualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(clearButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(parenteseEsquerdo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(parenteseDireito, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(number0, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(459, 459, 459))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(potenciaGenericaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(logaritimoButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(elevadoCuboButton)
+                                            .addComponent(logaritmoNaturalButton))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(elevadoQuadradoButton)
+                                                    .addComponent(senoButton))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(raizQuadradaButton)
+                                                    .addComponent(cossenoButton))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(raizCubicaButton)
+                                                    .addComponent(tangenteButton)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(senoIversoButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cossenoIversoButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(tangenteInversoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(raizEnesimaButton)
+                                            .addComponent(numeroDeEulerButton)
+                                            .addComponent(inversorSinalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(fatorialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(PIButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(porcentagemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(clearButton)
+                                .addComponent(apagarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(parenteseEsquerdo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(parenteseDireito, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(virgulaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(number4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(number0, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(subtracaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(adicaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(multbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(igualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(459, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>                        
-   
 
-
-
-    // eventos  necessários para a calculadora funcionar
-    private void digitar(String valor) {
-    // Se estiver mostrando mensagem de erro, limpa antes de digitar o próximo número
-    if (resultado.getText().equals("Erro")) {
-        resultado.setText("");
-    }
-    resultado.setText(resultado.getText() + valor);
-}
+       // =====================================================================
+    //  ESTADO E AUXILIARES
+    // =====================================================================
     CalculadoraLogica calculadoraLogica = new CalculadoraLogica();
-    
-      // Event handlers for button actions
-     private void number0ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-       digitar("0");
-    }                                       
+    private boolean modoGraus = true; // true = graus, false = radianos
 
-    private void number1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("1");
-        
-    }                                       
+    // Limpa a mensagem de erro antes de digitar
+    private void limparErroSeExistir() {
+        if (resultado.getText().equals("Erro")) {
+            resultado.setText("");
+        }
+    }
 
-    private void number2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("2");
-    }                                       
+    private void digitar(String valor) {
+        limparErroSeExistir();
+        resultado.setText(resultado.getText() + valor);
+    }
 
-    private void number3ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("3");
-    }                                       
-
-    private void number4ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("4");
-    }                                       
-
-    private void number5ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("5");
-    }                                       
-
-    private void number6ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("6");
-    }                                       
-
-    private void number7ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("7");
-
-    }                                       
-
-    private void number8ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("8");
-    }                                       
-
-    private void number9ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        digitar("9");
-    }  
-    
-        private void adicaoButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        
-        digitar("+");
-
-    }                                            
-
-    private void subtracaoButtonActionPerformed(java.awt.event.ActionEvent evt) {  
-        digitar("-");
-       
-    }                                               
-
-    private void multbuttonActionPerformed(java.awt.event.ActionEvent evt) {
-        digitar("*");
-
-    }                                          
-
-    private void divisaoButtonActionPerformed(java.awt.event.ActionEvent evt) {  
-        digitar("/");
-    }                                             
-   
-        private void parenteseEsquerdoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-       digitar("(");
-    }                                                 
-
-    private void parenteseDireitoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        digitar(")");
-    }                                                
-
-        private void igualButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO: Lógica do cálculo final
-           try {
-                String expressaoVisor = resultado.getText();
-                if (expressaoVisor.isEmpty()) return;
-            
-                // Troca o '÷' visual pelo '/' que o exp4j entende
-                String expressaoCalculo = expressaoVisor.replace("÷", "/");
-
-                // O exp4j calcula toda a expressão (com parênteses e precedência)
-                Expression e = new ExpressionBuilder(expressaoCalculo).build();
-                double resultadoFinal = e.evaluate();
-
-                // Formata para não mostrar ".0" em números inteiros (ex: 4.0 vira 4)
-                String textoFinal;
-                if (resultadoFinal == (long) resultadoFinal) {
-                    textoFinal = String.format("%d", (long) resultadoFinal);
-                } else {
-                    textoFinal = String.valueOf(resultadoFinal);
-                }
-
-                historicoDeCalculo.setText(expressaoVisor + " = " + textoFinal);
-                resultado.setText(textoFinal);
-
-            } catch (Exception ex) {
-                resultado.setText("Erro");
+    // Operador de fatorial (n!) para o exp4j
+    private final Operator fatorialOp = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
+        @Override
+        public double apply(double... args) {
+            int n = (int) args[0];
+            if ((double) n != args[0] || n < 0) {
+                throw new IllegalArgumentException("Fatorial exige inteiro >= 0");
             }
+            double r = 1;
+            for (int i = 2; i <= n; i++) r *= i;
+            return r;
+        }
+    };
 
-               
-    }                                           
+    // Funções trigonométricas em graus
+    private Function funcGraus(String nome, java.util.function.DoubleUnaryOperator op, boolean inversa) {
+        return new Function(nome, 1) {
+            @Override
+            public double apply(double... args) {
+                return inversa ? Math.toDegrees(op.applyAsDouble(args[0]))
+                               : op.applyAsDouble(Math.toRadians(args[0]));
+            }
+        };
+    }
 
-    private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // Evento do campo de texto
-    }  
+    // =====================================================================
+    //  NÚMEROS
+    // =====================================================================
+    private void number0ActionPerformed(java.awt.event.ActionEvent evt) { digitar("0"); }
+    private void number1ActionPerformed(java.awt.event.ActionEvent evt) { digitar("1"); }
+    private void number2ActionPerformed(java.awt.event.ActionEvent evt) { digitar("2"); }
+    private void number3ActionPerformed(java.awt.event.ActionEvent evt) { digitar("3"); }
+    private void number4ActionPerformed(java.awt.event.ActionEvent evt) { digitar("4"); }
+    private void number5ActionPerformed(java.awt.event.ActionEvent evt) { digitar("5"); }
+    private void number6ActionPerformed(java.awt.event.ActionEvent evt) { digitar("6"); }
+    private void number7ActionPerformed(java.awt.event.ActionEvent evt) { digitar("7"); }
+    private void number8ActionPerformed(java.awt.event.ActionEvent evt) { digitar("8"); }
+    private void number9ActionPerformed(java.awt.event.ActionEvent evt) { digitar("9"); }
 
- private void historicoDeCalculoActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        // TODO add your handling code here:
-    } 
+    private void virgulaButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        digitar(","); // exp4j usa ponto como separador decimal
+    }
 
+    // =====================================================================
+    //  OPERADORES BÁSICOS
+    // =====================================================================
+    private void adicaoButtonActionPerformed(java.awt.event.ActionEvent evt)    { digitar("+"); }
+    private void subtracaoButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("-"); }
+    private void multbuttonActionPerformed(java.awt.event.ActionEvent evt)      { digitar("*"); }
+    private void divisaoButtonActionPerformed(java.awt.event.ActionEvent evt)   { digitar("/"); }
 
-private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    private void porcentagemButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        digitar("/100 *"); // 50% -> 50/100
+    }
 
+    // =====================================================================
+    //  PARÊNTESES
+    // =====================================================================
+    private void parenteseEsquerdoActionPerformed(java.awt.event.ActionEvent evt) { digitar("("); }
+    private void parenteseDireitoActionPerformed(java.awt.event.ActionEvent evt)  { digitar(")"); }
+
+    // =====================================================================
+    //  POTÊNCIAS E RAÍZES
+    // =====================================================================
+    private void elevadoQuadradoButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("^2"); }
+    private void elevadoCuboButtonActionPerformed(java.awt.event.ActionEvent evt)     { digitar("^3"); }
+    private void potenciaGenericaButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("^"); }
+
+    private void raizQuadradaButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("sqrt("); }
+    private void raizCubicaButtonActionPerformed(java.awt.event.ActionEvent evt)   { digitar("cbrt("); }
+
+    private void raizEnesimaButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // Ex.: 27^(1/3) -> digite 27, aperte o botão, digite 3 e feche ")"
+        digitar("^(1/");
+    }
+
+    // =====================================================================
+    //  LOGARITMOS
+    // =====================================================================
+    private void logaritimoButtonActionPerformed(java.awt.event.ActionEvent evt)       { digitar("log10("); }
+    private void logaritmoNaturalButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("log("); } // no exp4j, log = ln
+
+    // =====================================================================
+    //  TRIGONOMETRIA
+    // =====================================================================
+    private void senoButtonActionPerformed(java.awt.event.ActionEvent evt)     { digitar("sin("); }
+    private void cossenoButtonActionPerformed(java.awt.event.ActionEvent evt)  { digitar("cos("); }
+    private void tangenteButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("tan("); }
+
+    private void senoIversoButtonActionPerformed(java.awt.event.ActionEvent evt)      { digitar("asin("); }
+    private void cossenoIversoButtonActionPerformed(java.awt.event.ActionEvent evt)   { digitar("acos("); }
+    private void tangenteInversoButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("atan("); }
+
+    private void alternarGrausRadianosActionPerformed(java.awt.event.ActionEvent evt) {
+        modoGraus = !modoGraus;
+        alternarGrausRadianos.setText(modoGraus ? "DEG" : "RAD");
+    }
+
+    // =====================================================================
+    //  CONSTANTES E EXTRAS
+    // =====================================================================
+    private void numeroDeEulerButtonActionPerformed(java.awt.event.ActionEvent evt) { digitar("e"); }
+    private void PIButtonActionPerformed(java.awt.event.ActionEvent evt)            { digitar("pi"); }
+    private void fatorialButtonActionPerformed(java.awt.event.ActionEvent evt)      { digitar("!"); }
+
+    private void inversorSinalButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        limparErroSeExistir();
+        String t = resultado.getText();
+        if (t.isEmpty()) return;
+        if (t.startsWith("-(") && t.endsWith(")")) {
+            resultado.setText(t.substring(2, t.length() - 1)); // remove o sinal
+        } else {
+            resultado.setText("-(" + t + ")");
+        }
+    }
+
+    // =====================================================================
+    //  CONTROLES (apagar / limpar / igual)
+    // =====================================================================
+    private void apagarButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String t = resultado.getText();
+        if (t.equals("Erro")) {
+            resultado.setText("");
+        } else if (!t.isEmpty()) {
+            resultado.setText(t.substring(0, t.length() - 1));
+        }
+    }
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
         resultado.setText("");
         historicoDeCalculo.setText("Histórico:  ");
-    }                                           
-     
+    }
+
+    private void igualButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            String expressaoVisor = resultado.getText();
+            if (expressaoVisor.isEmpty()) return;
+
+            // Substitui os operadores e o separador decimal
+            String expressaoCalculo = expressaoVisor.replace("÷", "/").replace("×", "*").replace(",", "."); // exp4j usa ponto como separador decimal
+
+            CalculadoraLogica logica = new CalculadoraLogica();
+            ExpressionBuilder builder = new ExpressionBuilder(expressaoCalculo).operator(fatorialOp);
+
+            // Modo graus: troca sin( por sind( etc. e registra as funções em graus
+            if (modoGraus) {
+                expressaoCalculo = expressaoCalculo
+                        .replaceAll("\\basin\\(", "asind(")
+                        .replaceAll("\\bacos\\(", "acosd(")
+                        .replaceAll("\\batan\\(", "atand(")
+                        .replaceAll("\\bsin\\(", "sind(")
+                        .replaceAll("\\bcos\\(", "cosd(")
+                        .replaceAll("\\btan\\(", "tand(");
+
+                builder = new ExpressionBuilder(expressaoCalculo)
+                        .operator(fatorialOp)
+                        .function(funcGraus("sind", Math::sin, false))
+                        .function(funcGraus("cosd", Math::cos, false))
+                        .function(funcGraus("tand", Math::tan, false))
+                        .function(funcGraus("asind", Math::asin, true))
+                        .function(funcGraus("acosd", Math::acos, true))
+                        .function(funcGraus("atand", Math::atan, true));
+            }
+
+            double resultadoFinal = builder.build().evaluate();
+
+            if (Double.isNaN(resultadoFinal) || Double.isInfinite(resultadoFinal)) {
+                resultado.setText("Erro");
+                return;
+            }
+
+            // Evita lixo de ponto flutuante (ex.: sin(180) = 1.2e-16)
+            resultadoFinal = Math.round(resultadoFinal * 1e10) / 1e10;
+
+            String textoFinal;
+            if (resultadoFinal == (long) resultadoFinal) {
+                textoFinal = String.format("%d", (long) resultadoFinal);
+            } else {
+                textoFinal = String.valueOf(resultadoFinal).replace('.', ','); // exp4j usa ponto como separador decimal
+            }
+
+            historicoDeCalculo.setText(expressaoVisor + " = " + textoFinal);
+            resultado.setText(textoFinal);
+
+        } catch (Exception ex) {
+            resultado.setText("Erro");
+        }
+    }
+
+    // =====================================================================
+    //  EVENTOS DE CAMPOS (sem lógica)
+    // =====================================================================
+    private void resultadoActionPerformed(java.awt.event.ActionEvent evt) { }
+    private void historicoDeCalculoActionPerformed(java.awt.event.ActionEvent evt) { }
     /**
      * @param args the command line arguments
      */
@@ -372,11 +633,22 @@ private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton PIButton;
     private javax.swing.JButton adicaoButton;
+    private javax.swing.JToggleButton alternarGrausRadianos;
+    private javax.swing.JButton apagarButton;
     private javax.swing.JButton clearButton;
+    private javax.swing.JButton cossenoButton;
+    private javax.swing.JButton cossenoIversoButton;
     private javax.swing.JButton divisaoButton;
+    private javax.swing.JButton elevadoCuboButton;
+    private javax.swing.JButton elevadoQuadradoButton;
+    private javax.swing.JButton fatorialButton;
     private javax.swing.JTextField historicoDeCalculo;
     private javax.swing.JButton igualButton;
+    private javax.swing.JButton inversorSinalButton;
+    private javax.swing.JButton logaritimoButton;
+    private javax.swing.JButton logaritmoNaturalButton;
     private javax.swing.JButton multbutton;
     private javax.swing.JButton number0;
     private javax.swing.JButton number1;
@@ -388,9 +660,20 @@ private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton number7;
     private javax.swing.JButton number8;
     private javax.swing.JButton number9;
+    private javax.swing.JButton numeroDeEulerButton;
     private javax.swing.JButton parenteseDireito;
     private javax.swing.JButton parenteseEsquerdo;
+    private javax.swing.JButton porcentagemButton;
+    private javax.swing.JButton potenciaGenericaButton;
+    private javax.swing.JButton raizCubicaButton;
+    private javax.swing.JButton raizEnesimaButton;
+    private javax.swing.JButton raizQuadradaButton;
     private javax.swing.JTextField resultado;
+    private javax.swing.JButton senoButton;
+    private javax.swing.JButton senoIversoButton;
     private javax.swing.JButton subtracaoButton;
+    private javax.swing.JButton tangenteButton;
+    private javax.swing.JButton tangenteInversoButton;
+    private javax.swing.JButton virgulaButton;
     // End of variables declaration                   
 }
