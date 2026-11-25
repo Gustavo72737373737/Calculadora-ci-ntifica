@@ -1,5 +1,8 @@
 package service;
 import java.lang.Math;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.Map;
 import java.util.function.DoubleUnaryOperator;
 
 import net.objecthunter.exp4j.ExpressionBuilder;
@@ -82,6 +85,15 @@ public class CalculadoraLogica {
         };
     }
 
+
+    private static final Map<String, Double> CONSTANTES = Map.ofEntries(
+    Map.entry("NA", 6.022e23), Map.entry("R", 0.082), Map.entry("Vm", 22.4),
+    Map.entry("H", 1.008), Map.entry("C", 12.011), Map.entry("N", 14.007),
+    Map.entry("O", 15.999), Map.entry("Na", 22.990), Map.entry("Cl", 35.45),
+    Map.entry("S", 32.06)
+);
+   
+
     // Calcula a expressão digitada no visor
     public double calcular(String expressaoVisor, boolean modoGraus) {
         String expr = expressaoVisor.replace(",", ".");
@@ -106,11 +118,26 @@ public class CalculadoraLogica {
             builder = new ExpressionBuilder(expr).operator(fatorialOp);
         }
 
-        double r = builder.build().evaluate();
+                builder.variables(CONSTANTES.keySet())
+               .function(new Function("ph", 1) {
+                   @Override
+                   public double apply(double... a) {
+                       return -Math.log10(a[0]);
+                   }
+               })
+               .function(new Function("K", 1) {
+                   @Override
+                   public double apply(double... a) {
+                       return a[0] + 273.15;
+                   }
+               });
+
+        double r = builder.build().setVariables(CONSTANTES).evaluate();
         if (Double.isNaN(r) || Double.isInfinite(r)) {
             throw new ArithmeticException("Resultado inválido");
         }
-        return Math.round(r * 1e10) / 1e10; // evita lixo de ponto flutuante
+         if (Math.abs(r) < 1e-12) r = 0;
+        return new BigDecimal(r).round(new MathContext(12)).doubleValue();
     }
 
     // Formata o resultado para o visor (vírgula como separador)
@@ -120,8 +147,7 @@ public class CalculadoraLogica {
     }
 
 
-
-    
+ 
 
 
 
