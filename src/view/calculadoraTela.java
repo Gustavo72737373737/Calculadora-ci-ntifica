@@ -548,58 +548,17 @@ public class calculadoraTela extends javax.swing.JFrame {
 
     private void igualButtonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            String expressaoVisor = resultado.getText();
-            if (expressaoVisor.isEmpty()) return;
+        String expressaoVisor = resultado.getText();
+        if (expressaoVisor.isEmpty()) return;
 
-            // Substitui os operadores e o separador decimal
-            String expressaoCalculo = expressaoVisor.replace("÷", "/").replace("×", "*").replace(",", "."); // exp4j usa ponto como separador decimal
+        double r = calculadoraLogica.calcular(expressaoVisor, modoGraus);
+        String textoFinal = calculadoraLogica.formatar(r);
 
-            CalculadoraLogica logica = new CalculadoraLogica();
-            ExpressionBuilder builder = new ExpressionBuilder(expressaoCalculo).operator(fatorialOp);
-
-            // Modo graus: troca sin( por sind( etc. e registra as funções em graus
-            if (modoGraus) {
-                expressaoCalculo = expressaoCalculo
-                        .replaceAll("\\basin\\(", "asind(")
-                        .replaceAll("\\bacos\\(", "acosd(")
-                        .replaceAll("\\batan\\(", "atand(")
-                        .replaceAll("\\bsin\\(", "sind(")
-                        .replaceAll("\\bcos\\(", "cosd(")
-                        .replaceAll("\\btan\\(", "tand(");
-
-                builder = new ExpressionBuilder(expressaoCalculo)
-                        .operator(fatorialOp)
-                        .function(funcGraus("sind", Math::sin, false))
-                        .function(funcGraus("cosd", Math::cos, false))
-                        .function(funcGraus("tand", Math::tan, false))
-                        .function(funcGraus("asind", Math::asin, true))
-                        .function(funcGraus("acosd", Math::acos, true))
-                        .function(funcGraus("atand", Math::atan, true));
-            }
-
-            double resultadoFinal = builder.build().evaluate();
-
-            if (Double.isNaN(resultadoFinal) || Double.isInfinite(resultadoFinal)) {
-                resultado.setText("Erro");
-                return;
-            }
-
-            // Evita lixo de ponto flutuante (ex.: sin(180) = 1.2e-16)
-            resultadoFinal = Math.round(resultadoFinal * 1e10) / 1e10;
-
-            String textoFinal;
-            if (resultadoFinal == (long) resultadoFinal) {
-                textoFinal = String.format("%d", (long) resultadoFinal);
-            } else {
-                textoFinal = String.valueOf(resultadoFinal).replace('.', ','); // exp4j usa ponto como separador decimal
-            }
-
-            historicoDeCalculo.setText(expressaoVisor + " = " + textoFinal);
-            resultado.setText(textoFinal);
-
-        } catch (Exception ex) {
-            resultado.setText("Erro");
-        }
+        historicoDeCalculo.setText(expressaoVisor + " = " + textoFinal);
+        resultado.setText(textoFinal);
+    } catch (Exception ex) {
+        resultado.setText("Erro");
+    }
     }
 
     // =====================================================================
@@ -675,5 +634,9 @@ public class calculadoraTela extends javax.swing.JFrame {
     private javax.swing.JButton tangenteButton;
     private javax.swing.JButton tangenteInversoButton;
     private javax.swing.JButton virgulaButton;
-    // End of variables declaration                   
+    // End of variables declaration  
+    
+    
+
+    
 }
