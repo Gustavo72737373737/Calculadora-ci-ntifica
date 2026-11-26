@@ -727,7 +727,7 @@ public class calculadoraTela extends javax.swing.JFrame {
 
     private void constanteNAButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
-        digitar("N_A");
+        digitar("NA");
     }                                                 
 
     private void constanteGasesButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                     
@@ -737,7 +737,7 @@ public class calculadoraTela extends javax.swing.JFrame {
 
     private void volumeMolarButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
-        digitar("V_m");
+        digitar("Vm");
     }                                                 
 
     /**
