@@ -32,6 +32,9 @@ public class calculadoraTela extends javax.swing.JFrame {
     }
 
 
+    
+
+
     private void aplicarEstilo() {
     javax.swing.AbstractButton[] numeros = {number0, number1, number2, number3, number4,
         number5, number6, number7, number8, number9, virgulaButton, parenteseEsquerdo, parenteseDireito};
@@ -49,6 +52,9 @@ public class calculadoraTela extends javax.swing.JFrame {
 
     Tema.aplicar(this, resultado, historicoDeCalculo, numeros, operadores,
         igualButton, controles, cientificas, quimica);
+
+
+         Tema.definirIconeDaJanela(this, "imagens/imagemIconeF.jpeg");
 }
 
     /**
